@@ -20,22 +20,20 @@
 <div class="w3-container" id="paper">
     <div class="w3-content" style="max-width:850px">
   
-    <h2 align="center" id="title"><b>3DCaricShop: A Dataset and A Baseline Method for Single-view 3D Caricature Face Reconstruction</b></h2>
+    <h2 align="center" id="title"><b>SharpContour: A Contour-based Boundary Refinement Approach for Efficient and Accurate Instance Segmentation</b></h2>
     <br/>
     <!-- <p align="center" id="title">Conference Name (NAME), YYYY.</p> -->
 
     <p align="center" class="center_text" id="authors">
-        <a target="_blank" >Yuda Qiu</a><sup>1,2</sup>
+        <a target="_blank" >Chenming Zhu</a><sup>1,2</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" >Xiaojie Xu</a><sup>2,4</sup>
+        <a target="_blank" >Xuanye Zhang</a><sup>1,2</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href="https://lingtengqiu.github.io/">Lingteng Qiu</a><sup>1,2</sup>
+       <a target="_blank" >Yanran Li</a><sup>3</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" >Yan Pan</a><sup>1,2</sup>
+        <a target="_blank" >Liangdong Qiu</a><sup>1,2</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" >Yushuang Wu</a><sup>1,2</sup>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href="http://chenweikai.github.io/">Weikai Chen</a><sup>3</sup>
+        <a target="_blank" >Kai Han</a><sup>3</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <a target="_blank" href="https://mypage.cuhk.edu.cn/academics/hanxiaoguang/">Xiaoguang Han#</a><sup>1,2*</sup>
         &nbsp;&nbsp;&nbsp;&nbsp;        
@@ -49,9 +47,9 @@
         &nbsp; &nbsp; &nbsp;
         <sup>2</sup>Shenzhen Research Institute of Big Data  
         &nbsp; &nbsp; &nbsp;
-        <sup>3</sup>Tencent America  
+        <sup>3</sup>Bournemouth University
         &nbsp; &nbsp; &nbsp;
-        <sup>4</sup>University of Science and Technology of China  
+        <sup>4</sup>The University of Hong Kong
         &nbsp; &nbsp; &nbsp;        
     </p>
 
@@ -65,10 +63,30 @@
         
         <h3 class="w3-left-align" id="video"><b>Introduction</b></h3>
         <p>
-            Caricature is an artistic representation that deliberately exaggerates the distinctive features of a human face to convey humor or sarcasm. However, reconstructing a 3D caricature from a 2D caricature image remains a challenging task, mostly due to the lack of data. 
-            We propose to fill this gap by introducing 3DCaricShop, the first largescale 3D caricature dataset that contains 2000 high-quality diversified 3D caricatures manually crafted by professional artists. 3DCaricShop also provides rich annotations including a paired 2D caricature image, camera parameters and 3D facial landmarks.
-            To demonstrate the advantage of 3DCaricShop, we present a novel baseline approach for single-view 3D caricature reconstruction. To ensure a faithful reconstruction with plausible face deformations, we propose to connect the good ends of the detailrich implicit functions and the parametric mesh representations. In particular, we first register a template mesh to the output of the implicit generator and iteratively project the registration result onto a pre-trained PCA space to resolve artifacts and self-intersections. To deal with the large deformation during non-rigid registration, we propose a novel view-collaborative graph convolution network (VCGCN) to extract key points from the implicit mesh for accurate alignment. 
-            Our method is able to generate high-fidelity 3D caricature in a pre-defined mesh topology that is animation-ready. Extensive experiments have been conducted on 3DCaricShop to verify the significance of the database and the effectiveness of the proposed method. 
+            Excellent performance has been achieved on instance
+segmentation but the quality on the boundary area remains
+unsatisfactory, which leads to a rising attention on bound-
+ary refinement. For practical use, an ideal post-processing
+refinement scheme are required to be accurate, generic
+and efficient. However, most of existing approaches pro-
+pose pixel-wise refinement, which either introduce a mas-
+sive computation cost or design specifically for different
+backbone models. Contour-based models are efficient and
+generic to be incorporated with any existing segmentation
+methods, but they often generate over-smoothed contour
+and tend to fail on corner areas. In this paper, we pro-
+pose an efficient contour-based boundary refinement ap-
+proach, named SharpContour, to tackle the segmentation of
+boundary area. We design a novel contour evolution pro-
+cess together with an Instance-aware Point Classifier. Our
+method deforms the contour iteratively by updating offsets
+in a discrete manner. Differing from existing contour evo-
+lution methods, SharpContour estimates each offset more
+independently so that it predicts much sharper and accu-
+rate contours. Notably, our method is generic to seamlessly
+work with diverse existing models with a small computa-
+tional cost. Experiments show that SharpContour achieves
+competitive gains whilst preserving high efficiency
 
         </p>
 
